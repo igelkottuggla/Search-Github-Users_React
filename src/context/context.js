@@ -4,12 +4,9 @@ import mockRepos from './mockData.js/mockRepos';
 import mockFollowers from './mockData.js/mockFollowers';
 import axios from 'axios';
 
-
 const rootUrl = 'https://api.github.com';
 
 const GithubContext = React.createContext();
-
-//Provider Consumer -  GithubContext.Provider
 
 const GithubProvider = ({ children }) => {
     const [githubUser, setGithubUser] = useState(mockUser);
@@ -22,8 +19,8 @@ const GithubProvider = ({ children }) => {
     const searchGithubUser = async (user) => {
         toggleError();
         setIsLoading(true);
-        const response = await axios(`${rootUrl}/users/${user}`).catch(
-            (error) => console.log(error)
+        const response = await axios(`${rootUrl}/users/${user}`).catch((error) =>
+            console.log(error)
         );
         if (response) {
             setGithubUser(response.data);
@@ -59,10 +56,7 @@ const GithubProvider = ({ children }) => {
                 } = data;
                 setRequests(remaining);
                 if (remaining === 0) {
-                    toggleError(
-                        true,
-                        `Sorry, you've exceeded your hourly rate limit!`
-                    );
+                    toggleError(true, `Sorry, you've exceeded your hourly rate limit!`);
                 }
             })
             .catch((error) => console.log(error));
