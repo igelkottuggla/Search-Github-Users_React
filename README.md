@@ -1,6 +1,6 @@
 ## Search guthub user app
 
-React app that allows to seach for github users and display general info about the user
+React app that allows to search for github users and display general info about the user
 
 Used:
 
